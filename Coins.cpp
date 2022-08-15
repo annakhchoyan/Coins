@@ -12,7 +12,7 @@ int coin_change(const std::vector<int>& coins, int amount)
 		return -1;
 	}
 
-	std::vector<int> x((amount +1), amount + 1);
+	std::vector<int> x((amount + 1), amount + 1);
 	x[0] = 0;
 
 	for(int i = 1; i <= amount; ++i)
