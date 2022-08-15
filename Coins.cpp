@@ -3,11 +3,11 @@
 
 int coin_change(const std::vector<int>& coins, int amount)
 {
-	if(amount == 0)
+	if (amount == 0)
 	{
 		return 0;
 	}
-	if(amount < 0)
+	if (amount < 0)
 	{
 		return -1;
 	}
@@ -15,16 +15,17 @@ int coin_change(const std::vector<int>& coins, int amount)
 	std::vector<int> x((amount + 1), amount + 1);
 	x[0] = 0;
 
-	for(int i = 1; i <= amount; ++i)
+	for (int i = 1; i <= amount; ++i)
 	{
-		for(auto j : coins)
+		for (auto j : coins)
 		{
-			if((i - j) >= 0)
+			if ((i - j) >= 0)
 			{
 				x[i] = std::min(x[i], 1 + x[i - j]);
 			}
 		}
 	}
+	
 	return x[amount] == amount + 1 ? -1 : x[amount];
 }
 
